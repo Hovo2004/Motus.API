@@ -25,8 +25,4 @@
     <ProjectReference Include="..\Motus.API.Data\Motus.API.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
