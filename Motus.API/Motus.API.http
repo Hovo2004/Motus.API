@@ -1,0 +1,6 @@
+@Motus.API_HostAddress = http://localhost:5164
+
+GET {{Motus.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
