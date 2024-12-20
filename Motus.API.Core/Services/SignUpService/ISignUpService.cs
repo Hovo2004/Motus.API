@@ -8,10 +8,9 @@ namespace Motus.API.Core.Services.SignUpService
 {
     public interface ISignUpService
     {
-        public void AddUser(string firstname, string lastname, string email, DateTime data, string phonenumber, string password);
-
-        public void DeleteUser(string email);
-
-        public void UserActivation(string email);
+        public bool AddUser(string firstname, string lastname, string email, DateTime data, string phonenumber, string password);
+        public bool DeleteUser(string email);
+        public bool login(string email, string password);
+        public void UserActivation(string email, string token);
     }
 }
