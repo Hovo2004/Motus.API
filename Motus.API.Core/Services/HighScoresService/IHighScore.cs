@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Motus.API.Core.Services.HighScoresService
 {
-    interface IHighScore
+    public interface IHighScore
     {
         public void AddScore(int userId, int score);
         public int GetHighScore(int userId);

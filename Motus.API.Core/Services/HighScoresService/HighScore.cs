@@ -9,7 +9,7 @@ using Motus.API.Data.Entities;
 
 namespace Motus.API.Core.Services.HighScoresService
 {
-    class HighScore:IHighScore
+    public class HighScore:IHighScore
     {
         private MainDbContext _context;
         public HighScore(MainDbContext context)
@@ -18,11 +18,10 @@ namespace Motus.API.Core.Services.HighScoresService
         }
         public void AddScore(int userId,int score)
         {
-            var user = _context.HighScores
-                .FirstOrDefault(h = h.UserId == userId);
+            var user = _context.HighScores.FirstOrDefault(h => h.UserId == userId);
             if (user != null)
             {
-                var scoresList = string.IsNUllOrEmpty(highScoreEntity.Scores) ? new List<int>() : JsonSerializer.Deserialize<List<int>>(user.Scores);
+                var scoresList = string.IsNullOrEmpty(user.Scores) ? new List<int>() : JsonSerializer.Deserialize<List<int>>(user.Scores);
                 scoresList.Add(score);
 
                 user.HighScore = scoresList.Max();
@@ -37,7 +36,7 @@ namespace Motus.API.Core.Services.HighScoresService
                 {
                     UserId = userId,
                     HighScore = score,
-                    scoresList = JsonSerializer.Serialize(scoresList)
+                    Scores = JsonSerializer.Serialize(scoresList)
                 };
                 _context.HighScores.Add(newUser);
                 _context.SaveChanges();

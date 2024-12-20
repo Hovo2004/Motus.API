@@ -1,6 +1,7 @@
 using Motus.API.Data.DAO;
 using Microsoft.EntityFrameworkCore;
 using Motus.API.Core.Services.SignUpService;
+using Motus.API.Core.Services.HighScoresService;
 
 
 var builder = WebApplication.CreateBuilder(args);
