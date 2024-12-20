@@ -8,7 +8,7 @@ namespace Motus.API.Core.Services.HighScoresService
 {
     public interface IHighScore
     {
-        public void AddScore(int userId, int score);
-        public int GetHighScore(int userId);
+        public void AddScore(string email, int score);
+        public int GetHighScore(string email);
     }
 }

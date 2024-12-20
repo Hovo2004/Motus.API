@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Motus.API.Core.Services.HighScoresService;
 using Motus.API.Core.Services.SignUpService;
 
 namespace Motus.API.Controllers
@@ -8,10 +9,12 @@ namespace Motus.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly ISignUpService _signUpService;
+        private readonly IHighScore _highScore;
 
-        public UserController(ISignUpService signUpService)
+        public UserController(ISignUpService signUpService, IHighScore highScore)
         {
             _signUpService = signUpService;
+            _highScore = highScore;
         }
 
         [HttpPost("AddUser")]
@@ -69,5 +72,20 @@ namespace Motus.API.Controllers
                 return BadRequest($"Error during login: {ex.Message}");
             }
         }
+
+        [HttpPost("AddScore")]
+        public IActionResult AddScore(string email, int score)
+        {
+            try
+            {
+                _highScore.AddScore(email, score);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error activating user: {ex.Message}");
+            }
+        }
+
     }
 }

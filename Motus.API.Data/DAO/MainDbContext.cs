@@ -8,6 +8,6 @@ namespace Motus.API.Data.DAO {
 
         // Declaring the tables of database
         public DbSet<UserEntity> Users { get; set; }
-        public DbSet<HighScoreEntity> HighScores { get; set; }
+        //public DbSet<HighScoreEntity> HighScores { get; set; }
     }
 }

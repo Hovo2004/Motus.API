@@ -17,6 +17,8 @@ namespace Motus.API.Data.Entities
         public string PhoneNumber { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public string? ConfirmationToken { get; set; } 
+        public string? ConfirmationToken { get; set; }
+        public string Scores { get; set; }
+        public int HighScore { get; set; }
     }
 }

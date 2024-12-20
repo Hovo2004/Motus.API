@@ -16,9 +16,9 @@ namespace Motus.API.Core.Services.HighScoresService
         {
             _context = context;
         }
-        public void AddScore(int userId,int score)
+        public void AddScore(string email,int score)
         {
-            var user = _context.HighScores.FirstOrDefault(h => h.UserId == userId);
+            var user = _context.Users.FirstOrDefault(user =>  user.Email == email);
             if (user != null)
             {
                 var scoresList = string.IsNullOrEmpty(user.Scores) ? new List<int>() : JsonSerializer.Deserialize<List<int>>(user.Scores);
@@ -31,21 +31,13 @@ namespace Motus.API.Core.Services.HighScoresService
             }
             else
             {
-                var scoresList = new List<int> { score };
-                var newUser = new HighScoreEntity
-                {
-                    UserId = userId,
-                    HighScore = score,
-                    Scores = JsonSerializer.Serialize(scoresList)
-                };
-                _context.HighScores.Add(newUser);
-                _context.SaveChanges();
+                Console.WriteLine("No such User");
             }
         }
 
-        public int GetHighScore(int userId)
+        public int GetHighScore(string email)
         {
-            var user = _context.HighScores.FirstOrDefault(h => h.UserId == userId);
+            var user = _context.Users.FirstOrDefault(user => user.Email == email);
             if (user != null)
             {
                 return user.HighScore;
