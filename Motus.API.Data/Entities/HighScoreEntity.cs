@@ -10,6 +10,8 @@ namespace Motus.API.Data.Entities
     {
         //Haytararum enq DB-i syunaknery,
         public int Id { get; set; }
+        public int UserId { get; set; }
+        public string Scores { get; set; }
         public int HighScore { get; set; }
 
     }

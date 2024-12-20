@@ -1,7 +1,10 @@
 using Motus.API.Data.DAO;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IHighScore, HighScore>();
 
 // Add services to the container.
 
