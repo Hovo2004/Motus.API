@@ -2,10 +2,7 @@ using Motus.API.Data.DAO;
 using Microsoft.EntityFrameworkCore;
 using Motus.API.Core.Services.SignUpService;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddScoped<IHighScore, HighScore>();
 
 // Add services to the container.
 
