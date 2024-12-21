@@ -4,8 +4,7 @@ using Motus.API.Core.Services.SignUpService;
 
 namespace Motus.API.Controllers
 {
-    //[ApiController]
-    //[Route("api/[controller]")]
+
     public class UserController : ControllerBase
     {
         private readonly ISignUpService _signUpService;

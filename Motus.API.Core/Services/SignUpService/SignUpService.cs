@@ -58,7 +58,6 @@ namespace Motus.API.Core.Services.SignUpService
                            $"<a href='{confirmationLink}'>Confirm Email</a>",
                     IsBodyHtml = true
                 };
-
                 // Add recipient
                 mailMessage.To.Add(email);
 
@@ -86,11 +85,7 @@ namespace Motus.API.Core.Services.SignUpService
                 }
                 else
                 {
-                    //Parse the date using "yyyy/MM/dd" format
-                    //DateTime birthDate = DateTime.ParseExact(data, "yyyy/MM/dd", System.Globalization.CultureInfo.InvariantCulture);
-
                     // Create a new user entity
-
                     UserEntity userEntity = new UserEntity()
                     {
                         Firstname = firstname,
